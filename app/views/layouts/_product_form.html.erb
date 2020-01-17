@@ -1,9 +1,11 @@
-<%= render "layouts/errors", :object => @survey %>
+<%= render "layouts/errors", :object => @product %>
 
-<%= form_for @survey do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
+<%= form_for @product do |f| %>
+  <%= f.label :prod_name %>
+  <%= f.text_field :prod_name %>
+  <%= f.label :cost %>
+  <%= f.text_field :cost %>
+  <%= f.label :country_of_origin %>
+  <%= f.text_field :country_of_origin %>
   <%= f.submit %>
 <% end %>
