@@ -11,7 +11,7 @@ class Review < ApplicationRecord
 
 
   private
-  def titleize_product
+  def titleize_review
     self.author = self.author.titleize
   end
 
