@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  before_save(:titleize_product)
   scope :three_most_recent, -> { order(created_at: :desc).limit(3)}
   scope :usa, -> { where(country_of_origin: "USA") }
   scope :most_reviews, -> {(
@@ -12,7 +13,6 @@ class Product < ApplicationRecord
   validates :prod_name, presence: true
   validates :cost, presence: true
   validates :country_of_origin, presence: true
-  before_save(:titleize_product)
 
 
   private

@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
+  before_save(:titleize_review)
   belongs_to :product
   validates :author, presence: true
   validates :rating, presence: true
@@ -7,7 +8,6 @@ class Review < ApplicationRecord
   too_long: "Are you writing a novel? Your review cannot have more than %{count} characters."}
   validates_length_of :rating, {minimum: 1, maximum: 5, too_short: "That bad huh?. Sorry but, your review must contain at least %{count} stars.",
   too_long: "Clearly, this product has completely changed your life. We get it. Unfortunately, you review can't give the product more than %{count} stars."}
-  before_save(:titleize_review)
 
 
   private
