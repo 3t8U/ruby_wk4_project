@@ -1,50 +1,51 @@
-<h1>Products</h1>
 <div class="jumbotron">
-  <p>About Mario's</p>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <% if @products.any? %>
-      <ul>
-        <% @products.each do |product| %>
-        <li><%= link_to product.prod_name, product_path(product) %></li>
+  <p><h1>About Mario's........</h1></p>
+  <p><h5>"Mario's is the spot for all your non-artisinal, mass-produced goods."</h5></p>
+    <h1>Products</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <% if @products.any? %>
+        <ul>
+          <% @products.each do |product| %>
+          <li><%= link_to product.prod_name, product_path(product) %></li>
+          <% end %>
+        </ul>
+        <% else %>
+        <p>There are no products yet.</p>
         <% end %>
-      </ul>
-      <% else %>
-      <p>There are no products yet.</p>
-      <% end %>
+      </div>
+
+      <div class="col-sm-4">
+        <h1>Most recent products</h1>
+        <% if @products.any? %>
+        <ul>
+          <% @products.each do |three_most_recent| %>
+          <li><%= link_to three_most_recent.prod_name, product_path(three_most_recent) %></li>
+          <% end %>
+        </ul>
+        <% else %>
+        <p>No products added recently :( </p>
+        <% end %>
+      </div>
+
+      <div class="col-sm-4">
+        <h1>Most reviewed product</h1>
+        <% if @products.any? %>
+        <ul>
+          <% @products.each do |most_reviews| %>
+          <li><%= link_to most_reviews.prod_name, product_path(most_reviews) %></li>
+          <% end %>
+        </ul>
+        <% else %>
+        <p>No products currently reviewed :( </p>
+        <% end %>
+      </div>
+
     </div>
 
-    <div class="col-sm-4">
-      <h1>Most recent products</h1>
-      <% if @products.any? %>
-      <ul>
-        <% @products.each do |three_most_recent| %>
-        <li><%= link_to three_most_recent.prod_name, product_path(three_most_recent) %></li>
-        <% end %>
-      </ul>
-      <% else %>
-      <p>No products added recently :( </p>
-      <% end %>
-    </div>
-
-    <div class="col-sm-4">
-      <h1>Most reviewed product</h1>
-      <% if @products.any? %>
-      <ul>
-        <% @products.each do |most_reviews| %>
-        <li><%= link_to most_reviews.prod_name, product_path(most_reviews) %></li>
-        <% end %>
-      </ul>
-      <% else %>
-      <p>No products currently reviewed :( </p>
-      <% end %>
-    </div>
-
-</div>
-
-</div>
+  </div>
 
 
-<p><%= link_to "Create new product", new_product_path %></p>
+  <p><%= link_to "Create new product", new_product_path %></p>
