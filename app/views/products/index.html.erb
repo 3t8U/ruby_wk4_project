@@ -11,4 +11,15 @@
 <% end %>
 
 
+<h1>Most recent products</h1>
+<% if @products.any? %>
+<ul>
+  <% @three_most_recent.each do |three_most_recent| %>
+    <li><%= link_to three_most_recent.prod_name, product_path(three_most_recent) %></li>
+  <% end %>
+</ul>
+<% else %>
+<p>No products added recently :( </p>
+<% end %>
+
 <p><%= link_to "Create new product", new_product_path %></p>
